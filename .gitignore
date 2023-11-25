@@ -2,3 +2,11 @@
 .env
 node_modules/
 
+# Ignore node_modules in the root directory (for front-end)
+node_modules/
+
+# Ignore node_modules in the backend directory (for back-end)
+backend/node_modules/
+
+# Ignore .env files
+.env
