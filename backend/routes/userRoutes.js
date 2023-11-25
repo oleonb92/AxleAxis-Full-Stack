@@ -50,3 +50,34 @@ router.post('/login', async (req, res) => {
 
     res.status(200).send('User logged in');
 });
+
+
+const nodemailer = require('nodemailer');
+
+// ...
+
+// Function to send an email
+const sendEmail = async (to, subject, text) => {
+    const transporter = nodemailer.createTransport({
+        service: 'your-email-service-provider',
+        auth: {
+            user: 'your-email-username',
+            pass: 'your-email-password',
+        },
+    });
+
+    const mailOptions = {
+        from: 'your-email-username',
+        to,
+        subject,
+        text,
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+    } catch (error) {
+        console.error('Email sending failed:', error);
+    }
+};
+
+// You can use the sendEmail function to send emails for verification and password reset.
